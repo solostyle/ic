@@ -6,8 +6,10 @@ class Exercise(models.Model):
 	name = models.CharField(max_length=200)
 	description = models.CharField(max_length=200)
 	technique = models.TextField()
+	pose_category = models.ManyToManyField('PoseCategory', related_name='exercises')
 	pub_date = models.DateTimeField('date published')
 	joint_action = models.ManyToManyField('JointAction', related_name='exercises')
+
 	def __unicode__(self):
 		return self.name + " " + self.description
 	def was_published_recently(self):
@@ -28,4 +30,8 @@ class Muscle(models.Model):
 	def __unicode__(self):
 		return self.muscle
 
-# Create your models here.
+class PoseCategory(models.Model):
+	category = models.CharField(max_length=20)
+	def __unicode__(self):
+		return self.category
+
