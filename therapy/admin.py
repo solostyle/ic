@@ -1,5 +1,5 @@
 from django.contrib import admin
-from therapy.models import Exercise, JointAction, Muscle
+from therapy.models import Exercise, JointAction, Muscle, PoseCategory
 
 class JointActionInline(admin.StackedInline):
 	model = JointAction
@@ -24,6 +24,8 @@ class MuscleInline(admin.StackedInline):
 
 class JointActionAdmin(admin.ModelAdmin):
 	inlines = [MuscleInline]
+
+#class PoseCategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(JointAction)
 admin.site.register(Muscle)
