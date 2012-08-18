@@ -10,7 +10,7 @@ class ExerciseAdmin(admin.ModelAdmin):
 		(None, {'fields': ['name', 'description', 'technique', 'joint_action', 'pose_category']}),
 		('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
 	]
-	list_display = ('name', 'description', 'pose_category', 'pub_date', 'was_published_recently')
+	list_display = ('name', 'description', 'pub_date', 'was_published_recently')
 	list_filter = ['pub_date']
 	search_fields = ['name']
 	date_hierarchy = 'pub_date'
@@ -25,7 +25,7 @@ class MuscleInline(admin.StackedInline):
 class JointActionAdmin(admin.ModelAdmin):
 	inlines = [MuscleInline]
 
-#class PoseCategoryAdmin(admin.ModelAdmin):
 
+admin.site.register(PoseCategory)
 admin.site.register(JointAction)
 admin.site.register(Muscle)
