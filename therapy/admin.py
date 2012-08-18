@@ -7,7 +7,7 @@ class JointActionInline(admin.StackedInline):
 
 class ExerciseAdmin(admin.ModelAdmin):
 	fieldsets = [
-		(None, {'fields': ['name', 'description', 'joint_action']}),
+		(None, {'fields': ['name', 'description', 'technique', 'joint_action']}),
 		('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
 	]
 	list_display = ('name', 'description', 'pub_date', 'was_published_recently')

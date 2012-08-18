@@ -5,6 +5,7 @@ from django.db import models
 class Exercise(models.Model):
 	name = models.CharField(max_length=200)
 	description = models.CharField(max_length=200)
+	technique = models.TextField()
 	pub_date = models.DateTimeField('date published')
 	joint_action = models.ManyToManyField('JointAction', related_name='exercises')
 	def __unicode__(self):
