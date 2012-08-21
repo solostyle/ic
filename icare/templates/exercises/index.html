@@ -1,7 +1,9 @@
+{% load url from future %}
+
 {% if latest_exercise_list %}
     <ol>
     {% for exercise in latest_exercise_list %}
-        <li><a href="/exercises/{{ exercise.id }}/">{{ exercise.name }}</a></li>
+        <li><a href="{% url 'therapy.views.detail' exercise.id %}">{{ exercise.name }}</a></li>
     {% endfor %}
     </ol>
 {% else %}
