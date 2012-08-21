@@ -15,11 +15,6 @@ urlpatterns = patterns('therapy.views',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^exercises/$', 'index'),
-    url(r'^exercises/(?P<exercise_id>\d+)/$', 'detail'),
-    url(r'^exercises/(?P<exercise_id>\d+)/joints/$', 'joints'),
-    url(r'^exercises/(?P<exercise_id>\d+)/categories/$', 'categories')
-)
-urlpatterns += patterns('',
+    url(r'^exercises/', include('therapy.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

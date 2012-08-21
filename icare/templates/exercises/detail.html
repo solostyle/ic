@@ -1,1 +1,15 @@
-{{ exercise }}
+<h1>{{ exercise.name }}: {{ exercise.description }}</h1>
+<h2>technique</h2>
+<p>{{ exercise.technique|linebreaks }}</p>
+<h2>joint actions</h2>
+<ul>
+{% for jointaction in exercise.joint_action.all %}
+	<li>{{ jointaction.joint }} {{ jointaction.action }}</li>
+{% endfor %}
+</ul>
+<h2>pose categories</h2>
+<ul>
+{% for posecategory in exercise.pose_category.all %}
+	<li>{{ posecategory.category }}</li>
+{% endfor %}
+</ul>
